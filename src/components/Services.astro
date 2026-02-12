@@ -1,0 +1,88 @@
+---
+const services = [
+  {
+    title: 'Events Media',
+    description: 'Live streaming, multi-camera video production, and complete event coverage. We bring your events to a global audience with broadcast-quality output.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />`,
+    stagger: 'stagger-1',
+  },
+  {
+    title: 'AI Automations',
+    description: 'Intelligent process automation powered by AI. Custom workflows that learn, adapt, and eliminate repetitive tasks from your business operations.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />`,
+    stagger: 'stagger-2',
+  },
+  {
+    title: 'Forecasting',
+    description: 'AI-powered predictions and data analytics. Sales forecasting, demand planning, and business intelligence that helps you make smarter decisions.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />`,
+    stagger: 'stagger-3',
+  },
+  {
+    title: 'AI Vision',
+    description: 'Computer vision solutions for quality control, object detection, and process monitoring. See what human eyes miss with intelligent visual analysis.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />`,
+    stagger: 'stagger-4',
+  },
+  {
+    title: 'Odoo Setup',
+    description: 'Complete ERP implementation and customization. We streamline your business processes with tailored Odoo solutions for accounting, inventory, and CRM.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />`,
+    stagger: 'stagger-5',
+  },
+  {
+    title: 'n8n Automations',
+    description: 'Workflow automation and system integration with n8n. Connect your tools, orchestrate APIs, and automate complex business processes visually.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />`,
+    stagger: 'stagger-6',
+  },
+];
+---
+
+<section id="services" class="py-20 md:py-28 bg-[var(--color-background-alt)] relative overflow-hidden">
+  <!-- Background accents -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-red-600/3 rounded-full blur-[120px]"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/3 rounded-full blur-[120px]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16 scroll-reveal">
+      <span class="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-red-400 uppercase bg-red-500/10 rounded-full border border-red-500/15 mb-4">
+        What We Do
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        Our Services
+      </h2>
+      <p class="text-lg text-white/50 max-w-2xl mx-auto">
+        End-to-end technology solutions tailored to drive your business forward.
+      </p>
+    </div>
+
+    <!-- Service cards grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        services.map((service) => (
+          <div class={`scroll-reveal ${service.stagger} group relative glass-dark rounded-2xl p-8 hover:-translate-y-1 transition-all duration-300 gradient-border`}>
+            <!-- Icon -->
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent-dark)] rounded-xl flex items-center justify-center text-white mb-6 shadow-lg shadow-red-500/20 group-hover:shadow-red-500/30 transition-shadow duration-300">
+              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <Fragment set:html={service.icon} />
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors duration-300">
+              {service.title}
+            </h3>
+
+            <p class="text-white/50 leading-relaxed text-sm">
+              {service.description}
+            </p>
+
+            <!-- Hover glow -->
+            <div class="absolute inset-0 rounded-2xl bg-red-500/0 group-hover:bg-red-500/[0.02] transition-colors duration-500 pointer-events-none"></div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

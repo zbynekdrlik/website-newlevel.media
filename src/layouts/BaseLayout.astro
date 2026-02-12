@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+import { generateCSSVariables } from '../utils/theme';
+import type { ThemeColors } from '../utils/theme';
+import themeConfig from '../content/settings/theme.json';
+import generalConfig from '../content/settings/general.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const pageTitle = title || `${generalConfig.tagline} | ${generalConfig.siteName}`;
+const pageDescription = description || generalConfig.description;
+const siteUrl = generalConfig.siteUrl;
+const cssVariables = generateCSSVariables(themeConfig.colors as ThemeColors);
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: generalConfig.siteName,
+  url: siteUrl,
+  description: generalConfig.description,
+  email: generalConfig.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'SK',
+    addressRegion: 'EU',
+  },
+  sameAs: [],
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={siteUrl} />
+    <title>{pageTitle}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={`${siteUrl}/images/og-image.jpg`} />
+    <meta property="og:site_name" content={generalConfig.siteName} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={`${siteUrl}/images/og-image.jpg`} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <style set:html={cssVariables} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-[var(--color-background)] text-[var(--color-text)]">
+    <slot />
+
+    <!-- Scroll reveal observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document
+        .querySelectorAll(
+          '.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale'
+        )
+        .forEach((el) => observer.observe(el));
+
+      // Parallax scroll variable
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            document.documentElement.style.setProperty('--scroll', String(window.scrollY));
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    </script>
+  </body>
+</html>

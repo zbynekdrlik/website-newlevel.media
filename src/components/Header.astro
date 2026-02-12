@@ -1,0 +1,117 @@
+---
+const navLinks = [
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-0">
+        <span class="font-bold text-xl md:text-2xl tracking-tight text-white header-logo">
+          newlevel<span class="text-[var(--color-primary)]">.media</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 header-link"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href="#contact"
+          class="inline-flex items-center px-5 py-2.5 bg-[var(--color-primary)] text-white font-semibold text-sm rounded-full hover:bg-[var(--color-primary-dark)] transition-all duration-200 shadow-lg shadow-red-500/20 hover:shadow-red-500/30"
+        >
+          Get in Touch
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-white hover:text-white/80 transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-lg border-t border-white/5">
+    <div class="px-4 py-4 space-y-3">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="block px-4 py-2.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 mobile-nav-link"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="#contact"
+        class="block px-4 py-2.5 text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-lg text-center transition-colors duration-200 mobile-nav-link"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  let isMenuOpen = false;
+
+  function updateHeader() {
+    if (!header) return;
+
+    if (window.scrollY > 50) {
+      header.classList.add('bg-black/90', 'backdrop-blur-lg', 'border-b', 'border-white/5');
+      header.classList.remove('bg-transparent');
+    } else {
+      header.classList.remove('bg-black/90', 'backdrop-blur-lg', 'border-b', 'border-white/5');
+      header.classList.add('bg-transparent');
+    }
+  }
+
+  window.addEventListener('scroll', updateHeader);
+  updateHeader();
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+    mobileMenu?.classList.toggle('hidden', !isMenuOpen);
+    menuIconOpen?.classList.toggle('hidden', isMenuOpen);
+    menuIconClose?.classList.toggle('hidden', !isMenuOpen);
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      isMenuOpen = false;
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+    });
+  });
+</script>

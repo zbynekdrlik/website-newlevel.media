@@ -1,0 +1,13 @@
+{
+  "siteName": "newlevel.media",
+  "siteUrl": "https://newlevel.media",
+  "tagline": "Technology. Media. Innovation.",
+  "description": "We combine cutting-edge technology with creative media production. Events media, AI automations, forecasting, computer vision, and ERP solutions.",
+  "email": "info@newlevel.media",
+  "location": "Slovakia, EU",
+  "social": {},
+  "contact": {
+    "web3formsKey": "YOUR_WEB3FORMS_ACCESS_KEY",
+    "responseTime": "24 hours"
+  }
+}
