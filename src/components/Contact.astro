@@ -3,9 +3,9 @@ import generalConfig from '../content/settings/general.json';
 ---
 
 <section id="contact" class="py-20 md:py-28 bg-[var(--color-background-alt)] relative overflow-hidden">
-  <!-- Decorative elements -->
-  <div class="absolute top-10 right-[10%] w-64 h-64 bg-red-600/5 rounded-full blur-[100px]"></div>
-  <div class="absolute bottom-10 left-[5%] w-48 h-48 bg-red-500/5 rounded-full blur-[80px]"></div>
+  <!-- Decorative elements (hidden on mobile for performance) -->
+  <div class="mobile-hide-blur absolute top-10 right-[10%] w-64 h-64 bg-red-600/5 rounded-full blur-[100px]"></div>
+  <div class="mobile-hide-blur absolute bottom-10 left-[5%] w-48 h-48 bg-red-500/5 rounded-full blur-[80px]"></div>
 
   <!-- Top accent line -->
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent"></div>
